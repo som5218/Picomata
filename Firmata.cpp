@@ -45,7 +45,7 @@ void FirmataClass::processInput(void)
     
     data=read();
 
-      if( waitForData == 0 ){//prcoeso para separar los datos
+      if( waitForData == 0 ){//proceso para separar los datos
         if( data < 0xF0 )
           command = data & 0xF0;
 
@@ -173,7 +173,7 @@ void FirmataClass::setDigitalPinValue(uint8_t command, uint8_t number, bool valu
 {
   write(SET_DIGITAL_PIN_VALUE);
   write(number);
-  write(mode);
+  write(value);
 }
 
 void FirmataClass::endSysex(void)

@@ -1,6 +1,6 @@
 #ifndef Firmata_h
 #define Firmata_h
-#define TOTAL_PINS 40
+#define TOTAL_PINS 29
 #define TOTAL_PORTS 4
 #define OUTPUT 1
 #define INPUT 0
@@ -8,9 +8,6 @@
 #define FIRMATA_MINOR_VERSION 5 
 
 #include "Serial.h"
-
-
-uint8_t mode;
 
 class FirmataClass : public Serial
 {

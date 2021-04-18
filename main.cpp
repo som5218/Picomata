@@ -70,7 +70,7 @@ void digitalWriteCallback(uint8_t port, int value)//para los pines analogicos se
   }
 }
 
-bool isDigitalPin(uint8_t pin)//right here works that function that determine if a pin is digital
+bool isDigitalPin(uint8_t pin)//function that determine if a pin is digital
 {
   if((pin > 0 && pin < 30))
   {
@@ -119,7 +119,7 @@ void setValue_pinCallback(uint8_t pin, int value)//establece el valor en la inte
   if (pin < TOTAL_PINS && isDigitalPin(pin)) {
     if (Firmata.getPinMode(pin) == OUTPUT) {
       Firmata.setPinState(pin, value);
-      gpio_put(pin, value);//Same that digitalWrite?
+      gpio_put(pin, value);//Same that digitalWrite
     }
   }
 }
@@ -160,7 +160,7 @@ void sysexCallback(uint8_t comando, uint8_t argc, uint8_t *argv)
 }
 
 void checkDigitalInputs(void){//se revisa si hay entradas digitales con base en los puertos
-  for(uint8_t i=0;i<=15;i++){
+  for(uint8_t i=0;i<=TOTAL_PINS;i++){//se pone  29 "TOTAL_PINS" como el valor de i?
   if(TOTAL_PORTS > i && pines_reporte[i]) outputPort(i, Firmata.readPort(i, configuracion_puertos_entrada[i]), false);//si esta activado el reporte se establece si es salida o entrada
   }
 }
